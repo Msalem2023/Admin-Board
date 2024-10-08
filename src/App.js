@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import GridLayout from "./Components/grid";
+import TopSidebar from "./Components/TopSideBar";
+import { useAuth } from "./Hooks/useCurrentUser";
+import EditModal from "./Modal/Edit";
+import LoginModal from "./Modal/LogIn";
+import RegisterModal from "./Modal/Register";
+import PromoteModal from "./Modal/Promote";
+import AttachModal from "./Modal/Attachment";
+
 
 function App() {
+  const token = sessionStorage.getItem("token")
+  const { user } = useAuth()
+  console.log(user)
+  // const { data } = useQuery(["Home"], () => {
+  //   return axios.post('http://localhost:5000/user/posts', {}, {
+  //     headers: {
+  //       'content-type': 'application/json',
+  //       'authorization': `Bearer ${user?.token}`
+  //     }
+  //   }).then((res) => res.data)
+  // })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <AttachModal/>
+      <PromoteModal />
+      <EditModal />
+      <LoginModal />
+      <RegisterModal />
+      {token ? <GridLayout data={user} /> : <TopSidebar />}
+    </>
   );
 }
 
