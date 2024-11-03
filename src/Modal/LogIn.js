@@ -53,7 +53,7 @@ const LoginModal = () => {
   const onSubmit = useCallback(async (data) => {
     try {
         setIsLoading(true)
-         await axios.post("http://localhost:5000/user/signin",
+         await axios.post(`${process.env.API_URL}/user/signin`,
            data, {
             headers: {
                 'content-type': 'application/json',
