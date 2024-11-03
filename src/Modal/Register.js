@@ -43,7 +43,7 @@ const RegisterModal = () => {
   const onSubmit = (data) => {
     setIsLoading(true);
 
-    axios.post("http://localhost:5000/user/signup", data)
+    axios.post(`${process.env.API_URL}/user/signup`, data)
       .then((res) => {
         console.log(res)
         toast.success("Success!");
