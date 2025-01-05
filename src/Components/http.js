@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = process.env.API_URL || 'http://localhost:5000'; // Set base URL from environment variable
+const apiUrl = 'https://api-dashboard-ccrr.vercel.app/'; // Set base URL from environment variable
 
 export async function Update({ image, token }) {
     const formData = new FormData();
