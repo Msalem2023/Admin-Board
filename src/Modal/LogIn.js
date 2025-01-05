@@ -53,7 +53,7 @@ const LoginModal = () => {
   const onSubmit = useCallback(async (data) => {
     try {
         setIsLoading(true)
-         await axios.post(`${process.env.API_URL}/user/signin`,
+         await axios.post(`https://api-dashboard-ccrr.vercel.app/user/signin`,
            data, {
             headers: {
                 'content-type': 'application/json',
